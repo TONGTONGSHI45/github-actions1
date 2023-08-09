@@ -1,6 +1,7 @@
----
 name: CI
-on: workflow_dispatch
+on:
+  workflow_dispatch
+
 jobs:
   build_on_linux:
     runs-on: ubuntu-latest
@@ -9,10 +10,14 @@ jobs:
         run: echo Hello, world!
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          echo "Add other actions to build,"
+          echo "test, and deploy your project."
           date
-build_on_windows:
-  runs-on: windows-latest
-  steps:
-    - name: run multi-line script run:| echo "hello github actions" Get-Date
+
+  build_on_windows:
+    runs-on: windows-latest
+    steps:
+      - name: Run multi-line script
+        run: |
+          echo "hello github actions"
+          Get-Date
